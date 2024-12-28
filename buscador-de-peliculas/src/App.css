@@ -1,1 +1,57 @@
+/*importar la fuente que usaremos*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/*css del body*/
+body {
+    font-family: 'Poppins', sans-serif; 
+    background-image: url(/bg-shape4.svg);
+    background-repeat: no-repeat; /* evita que la imagen se repita en los ejes X y Y, sin esto las imagenes se repiten hasta llenar el area del elemento*/
+    background-size: cover; /* ajusta el tamaño de la imagen de fondo para que cubra todo el area de la etiqueta body */
+    background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+    background-position: center; /* Centra la imagen */
+    height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+}
+
+
+.form-search { /*trabajaremos en el div que contiene el formulario*/
+    margin: 3% 0 5%;
+    justify-content: center;/*justificamos el contenido para que se centre*/
+    display: flex;/*damos propiedad de flexbox*/
+    flex-direction: column; 
+}
+
+.form-search input[type='text']{
+    font-family: inherit;
+    padding: 9px 17px;/*damos padding*/
+    font-size: 20px;/*damos tamaño de fuente*/
+    border-radius: 15px 0px 0px 15px;
+    background-color: #fff;
+    color: #000;
+    border: 0;
+    cursor: pointer;/*modifcamos el cursor*/
+}
+
+.form-search input[type='submit']{
+    font-size: 20px;
+    padding: 12px 18px;/*damos padding*/
+    border-radius: 0px 15px 15px 0px;/*modificamos el radio*/
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+.form-search input[type='submit']:hover{
+    background-color: #483f3f;
+}
+
+
+.form-search h2 {
+    font-size: 50px; /*cambiamos tamaño de fuente*/
+}
+
+.App {
+    text-align: center; /*alineamos la pocicion del texto*/
+    margin: 0 8% 4%; /*damos margin en porcentajes*/
+}
