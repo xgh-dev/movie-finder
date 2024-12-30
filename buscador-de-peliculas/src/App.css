@@ -55,3 +55,10 @@ body {
     text-align: center; /*alineamos la pocicion del texto*/
     margin: 0 8% 4%; /*damos margin en porcentajes*/
 }
+
+.movies-content {
+    display: flex; /*establecemos el display de tipo flexbox*/
+    flex-wrap: wrap;/*permite que los elementos hijos se pasen a una fila inferior, este cambio es influenciado por el tamaño del contenedor*/
+    gap: 30px;/*establece un espacio entre cada elemento hijo del contenedor de forma vertical e horizontal*/
+    justify-content: center;
+}
