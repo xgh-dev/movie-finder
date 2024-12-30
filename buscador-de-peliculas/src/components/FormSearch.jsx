@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
-import Movies from "./Movies";
 
 const FormSearch = () => {
   const [titulo, setTitulo] = useState("");//estado que captara el valor ingresado en el formulario
@@ -35,7 +34,6 @@ const FormSearch = () => {
         {data === null ? <p>Esperando un titulo</p>:null}
         {error ? <p>Error en la busqueda</p> : null}
       </div>
-      <Movies />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import DefaultImage from '/NoImage.png'
-
+import { Link } from 'react-router-dom';
 
 const ItemMovie = ({ item }) => {
 
@@ -7,7 +7,8 @@ const ItemMovie = ({ item }) => {
 
   return (
     <>
-      <article>
+    <Link to={`/singleItem/${item.imdbID}`} style={{color: 'inherit',textDecoration:'inherit' }}>
+    <article>
         <div
           className="item-movie"
           style={{
@@ -20,6 +21,7 @@ const ItemMovie = ({ item }) => {
           </div>
         </div>
       </article>
+    </Link>
     </>
   );
 };

@@ -1,5 +1,8 @@
 import "./App.css";
-import FormSearch from "./components/FormSearch";
+import MainComponent from "./components/MainComponent";
+import SingleItem from "./components/SingleMovie";
+import {Routes,Route,BrowserRouter} from 'react-router-dom'
+
 
 function App() {
  
@@ -7,7 +10,12 @@ function App() {
   return (
     <>
       <div className="App">
-        <FormSearch />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainComponent />}/>
+            <Route path={`/singleItem/:id`} element={<SingleItem/>}/>
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   );
