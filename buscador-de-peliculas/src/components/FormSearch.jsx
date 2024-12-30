@@ -32,6 +32,7 @@ const FormSearch = () => {
           />
           <input type="submit" value="Buscar" />
         </form>
+        {data === null ? <p>Esperando un titulo</p>:null}
         {error ? <p>Error en la busqueda</p> : null}
       </div>
       <Movies />

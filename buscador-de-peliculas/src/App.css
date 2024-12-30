@@ -60,5 +60,48 @@ body {
     display: flex; /*establecemos el display de tipo flexbox*/
     flex-wrap: wrap;/*permite que los elementos hijos se pasen a una fila inferior, este cambio es influenciado por el tamaño del contenedor*/
     gap: 30px;/*establece un espacio entre cada elemento hijo del contenedor de forma vertical e horizontal*/
-    justify-content: center;
+    justify-content: center; /*justificamos elcontenido al centro*/
+}
+
+.item-movie {
+    /*aqui definiremos el css para cada elemento movie*/
+    width: 250px;/*damos largo de 250px*/
+    height: 300px;/*damos largo*/
+    background-size: cover;/* ajustamos el elemento del fondo al tamaño del contenedor*/
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end; /*esta propiedad alinea en el eje y , en este caso al final*/
+}
+
+.item-movie:hover > .info {
+    color: #fff;
+    background-color: black;
+}
+
+.info {
+    background-color: #ffffffd9;
+    width: 100%;/*ajustamos el largo para que ocupe el 100% del contenedor*/
+    padding: 10px 30px;/*damos padin horizontal y vertical para que haya una separacion entre el borde del contenedor info y su contenido*/
+    height: 87px;/*ajustamos el alto del contenedor*/
+    display: flex;/*damos un display de flex*/
+    flex-direction: column;/*ajustamos la direccion del flex*/
+    justify-content: space-around;/*justificamos el contenenido para que se ajuste con un espacio al rededor de el*/
+    border-radius: 0px 0px 15px 15px;
+    transition: .7s;/*damos una transisicon al hover de .7 s*/
+}
+
+.info p {
+    margin: 0;
+}
+.info p span {
+    text-decoration: none;
+}
+.info h4 {
+    margin: 0 0 8px;
+    line-height: 19px;
+}
+
+.row-info {
+    display: flex;
+    justify-content: space-between
 }
