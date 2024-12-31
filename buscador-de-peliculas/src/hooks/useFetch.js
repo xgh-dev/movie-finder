@@ -38,30 +38,29 @@ export const useFetch = (params) => {
 };
 
 export const useFetchByID = (params) => {
-
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState(null);
 
   const consulta = (url) => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(url)
-    .then((respuesta) => respuesta.json())
-    .then((respuestaJson) => {
-      console.log(respuestaJson)
-      setData(respuestaJson);
-      setError(false)
-      setIsLoading(false)
-    }).catch(error => {
-      console.log('error en la consulta por id',error)
-      setError(true)
-    })
-  }
-  
+      .then((respuesta) => respuesta.json())
+      .then((respuestaJson) => {
+        console.log(respuestaJson);
+        setData(respuestaJson);
+        setError(false);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log("error en la consulta por id", error);
+        setError(true);
+      });
+  };
+
   useEffect(() => {
-      consulta(`${API_ENDPOINT}${params}`);
+    consulta(`${API_ENDPOINT}${params}`);
   }, [params]);
 
-  return {isLoading,error,data}
-
+  return { isLoading, error, data };
 };

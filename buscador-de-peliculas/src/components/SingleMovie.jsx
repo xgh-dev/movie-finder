@@ -1,23 +1,56 @@
 import { useParams } from "react-router-dom";
-import { useFetchByID,useFetch } from "../hooks/useFetch";
-
-
-//api para renderizar un solo elemento porsu id `http://www.omdbapi.com/?apikey=877dbc3a&i=${id}`;
+import { useFetchByID } from "../hooks/useFetch";
+import DefaultImage from "/NoImage.png";
 
 const SingleItem = () => {
   //extraemos los parametros de la url los atributos que necesitemos
   const { id } = useParams();
-  
-  const {isLoading,error,data} = useFetchByID(`&i=${id}`)//este tipo de consulta nos devolvera un json en un formato diferente, por lo tanto estara en conflicto con las validaciones de useFetch por ende deberemos asigarle un or para que nos pueda devolver el json cuando hagamos este tipo de consulta
+  const { isLoading, error, data } = useFetchByID(`&i=${id}`);
 
-  //console.log(data);
+  //esta condicional nos permitira renderizar nuestra informacion hasta que la consulta se termine de ejecutar y el valor de isLoading sea false, cuando esto suceda se renderizara nustro componente principal
+  if (isLoading) {
+    return <div className="loading"></div>;
+  }
+
+  const { Poster, Title, Plot, Year, Country, Director, Released, Runtime } =
+    data;
+  let image = Poster === "N/A" ? DefaultImage : Poster;
+
   return (
     <>
-      <h3>Single item</h3>
+      {isLoading ? (
+        <p>Generando consulta...</p>
+      ) : (
+        <div className="single-movie">
+          <img src={image} alt={Title} />
+          <div className="single-info">
+            <h2>{Title}</h2>
+            <p> {Plot}</p>
+            <p>
+              <strong>Country: </strong>
+              {Country}
+            </p>
+            <p>
+              <strong>Director: </strong>
+              {Director}
+            </p>
+            <p>
+              <strong>Released: </strong>
+              {Released}
+            </p>
+            <p>
+              <strong>Runtime: </strong>
+              {Runtime}
+            </p>
+            <p>
+              <strong>Year: </strong>
+              {Year}
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
 export default SingleItem;
-
-
